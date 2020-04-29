@@ -19,20 +19,16 @@
     
 var w = window.innerWidth;
 var h = window.innerHeight;
-var cube = new cube();
-var fr = 2
+var cuby = new cube();
+var fr = 3
 var i;
-//cube = []
-
-
 
 
 function setup(){
   createCanvas(w,h)
   frameRate(fr);
-  for(var i=0; i = 100; i++){
-    cube.push(new cube());
-}
+  
+
 
 
 
@@ -40,16 +36,22 @@ function setup(){
 }
 
 function draw(){
+  
   clear();
-  cube.show()
-  cube.update();
-  /*for (i=0; i <cube.length; i++){
-    if(cube.y > 621){
-    cube[i].show();
-    cube[i].update();
-    }
-}*/
- 
+  
+  
+  cuby.show();
+    
+  cuby.update();
+      
+      
+      
+      
+      
+    
+
+  
+  
  
   noFill();
   rect(550,20,345,690)
@@ -84,7 +86,10 @@ function draw(){
   line(550,675,896,675)
   
   
-  
+  for(var i=0; i < 5; i++){
+    
+    rect(cuby.history)
+    }
   
   
   
@@ -93,23 +98,23 @@ function draw(){
 
 function keyPressed(){
   if(keyCode === 40){//down faster
-    if(cube.y < 621){
-      cube.y += 34.5;
+    if(cuby.y < 640){
+      cuby.y += 34.5;
       }
   }
   if(keyCode === 37){
-    if((cube.x > 550) && (cube.y < 621)){//left
-      cube.x -= 34.5;
+    if((cuby.x > 550) && (cuby.y < 640)){//left
+      cuby.x -= 34.5;
     }
   }
   if(keyCode === 39){
-    if((cube.x < 800) &&(cube.y < 621)){//right
-      cube.x += 34.5;
+    if((cuby.x < 800) &&(cuby.y < 640)){//right
+      cuby.x += 34.5;
     }
   }
   if(keyCode === 32){
-    if(cube.y < 621){
-      cube.y = 640;
+    if(cuby.y < 640){
+      cuby.y = 640;
     }
   }
   //if(keyCode === 38){
