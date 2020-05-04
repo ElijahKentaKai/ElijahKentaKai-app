@@ -5,7 +5,7 @@ function cube(){
   this.y= 20;
   this.w=69;
   this.h=69;
-  this.history=[];
+  this.fr = 3
   this.update  = function(){
     
     if(this.y < 640){
@@ -14,8 +14,7 @@ function cube(){
     else if((this.y ==  640) ||(this.y > 640  )){{
       
       
-      var v = createVector(this.x,this.y);
-      this.history.push(v)
+      
       this.x =688;
       this.y=20;
       
@@ -23,6 +22,7 @@ function cube(){
     }
   }
   this.show = function(){
+    frameRate(fr)
     fill(255,0,0);
     rect(this.x,this.y,this.w,this.h)
     
@@ -33,21 +33,26 @@ function cube(){
   
 }
 
-
-function lShape(){
-  this.x = 688;
-  this.y2= 20;
-  this.gravity = 0.1;
+function shooter(){
+  this.x=722;
+  this.y=675;
+  this.x2=770;
+  this.y2 =710;
+  this.x3= 673;
+  this.y3=710
+  this.fr2= 60
+  
+  
+  this.update2 = function(){
     
-  
-  
+  }
   this.show2 = function(){
-    fill(0,255,0);
-    beginShape()
-    vertex(10,10);
-    vertex(34.5,34.5)
-    closeShape()
+    frameRate(this.fr2)
+    fill(255,0,0)
+    triangle(this.x,this.y,this.x2,this.y2,this.x3,this.y3)
   }
   
   
+  
 }
+

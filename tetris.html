@@ -20,14 +20,13 @@
 var w = window.innerWidth;
 var h = window.innerHeight;
 var cuby = new cube();
-var fr = 3
+var fr = 5
 var i;
-
+var player = new shooter();
 
 function setup(){
   createCanvas(w,h)
-  frameRate(fr);
-  
+  cuby.frameRate(fr)
 
 
 
@@ -39,11 +38,11 @@ function draw(){
   
   clear();
   
-  
   cuby.show();
     
   cuby.update();
-      
+  player.show2()
+  
       
       
       
@@ -54,7 +53,14 @@ function draw(){
   
  
   noFill();
-  rect(550,20,345,690)
+  rect(343,20,761,690)
+  line(377.5,20,377,710)
+  line(412,20,412,710)
+  line(446.5,20,446.5,710)
+  line(481,20,481,710)
+  line(515.5,20,515.5,710)
+  line(550,20,550,710)
+  
   line(584.5,20,584.5,710)
   line(619,20,619,710)
   line(653.5,20,653.5,710)
@@ -64,65 +70,59 @@ function draw(){
   line(791.5,20,791.5,710)
   line(826,20,826,710)
   line(860.5,20,860.5,710)
+  line(895,20,895,710)
+  line(929.5,20,929.5,710)
+  line(964,20,964,710)
+  line(998.5,20,998.5,710)
+  line(1037.5,20,1037.5,710)
+  line(1072,20,1072,710)
+
   
-  line(550,54.5,896,54.5)
-  line(550,89,896,89)
-  line(550,123.5,896,123.5)
-  line(550,158,896,158)
-  line(550,192.5,896,192.5)
-  line(550,227,896,227)
-  line(550,261.5,896,261.5)
-  line(550,296,896,296)
-  line(550,330.5,896,330.5)
-  line(550,364.5,896,364.5)
-  line(550,399,896,399)
-  line(550,433.5,896,433.5)
-  line(550,468,896,468)
-  line(550,502.5,896,502.5)
-  line(550,537,896,537)
-  line(550,571.5,896,571.5)
-  line(550,606,896,606)
-  line(550,640.5,896,640.5)
-  line(550,675,896,675)
-  
-  
-  for(var i=0; i < 5; i++){
-    
-    rect(cuby.history)
-    }
+  line(343,54.5,1102,54.5)
+  line(343,89,1102,89)
+  line(343,123.5,1102,123.5)
+  line(343,158,1102,158)
+  line(343,192.5,1102,192.5)
+  line(343,227,1102,227)
+  line(343,261.5,1102,261.5)
+  line(343,296,1102,296)
+  line(343,330.5,1102,330.5)
+  line(343,364.5,1102,364.5)
+  line(343,399,1102,399)
+  line(343,433.5,1102,433.5)
+  line(343,468,1102,468)
+  line(343,502.5,1102,502.5)
+  line(343,537,1102,537)
+  line(343,571.5,1102,571.5)
+  line(343,606,1102,606)
+  line(343,640.5,1102,640.5)
+  line(343,675,1102,675)
   
   
   
+  
+  
+  if((keyIsDown(RIGHT_ARROW)) &&(player.x2 <1102)){
+    player.x += 17.25;
+    player.x2 += 17.25;
+    player.x3 += 17.25;
+  }
+  if((keyIsDown(LEFT_ARROW)) &&(player.x3 > 330)){
+    player.x -= 17.25;
+    player.x2 -= 17.25;
+    player.x3 -= 17.25;
+  }
+
   
 }
 
 function keyPressed(){
-  if(keyCode === 40){//down faster
-    if(cuby.y < 640){
-      cuby.y += 34.5;
-      }
-  }
-  if(keyCode === 37){
-    if((cuby.x > 550) && (cuby.y < 640)){//left
-      cuby.x -= 34.5;
-    }
-  }
-  if(keyCode === 39){
-    if((cuby.x < 800) &&(cuby.y < 640)){//right
-      cuby.x += 34.5;
-    }
-  }
-  if(keyCode === 32){
-    if(cuby.y < 640){
-      cuby.y = 640;
-    }
-  }
-  //if(keyCode === 38){
-   // rotateZ(180)
-  //}
+
+  
   
 }
 
+  
 
 
 
