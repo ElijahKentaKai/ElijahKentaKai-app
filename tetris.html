@@ -2,6 +2,7 @@
   <head>
     <script src="p5.min.js"></script>
     <script src="tetris.js"></script>
+    <script src ="p5.collide2d.min.js"></script>
     <style>
   body{
     margin:0;
@@ -19,14 +20,16 @@
     
 var w = window.innerWidth;
 var h = window.innerHeight;
-var cuby = new cube();
-var fr = 5
-var i;
+//var cuby = new cube();
+var cuby=[]
+var score = 0
 var player = new shooter();
-
+var hit = false
 function setup(){
   createCanvas(w,h)
-  cuby.frameRate(fr)
+  for(var i=0; i<1; i++){
+    cuby.push( new cube());
+  }
 
 
 
@@ -35,16 +38,26 @@ function setup(){
 }
 
 function draw(){
-  
   clear();
-  
-  cuby.show();
+  for(var i=0; i <cuby.length; i++){
+    cuby[i].show();
     
-  cuby.update();
+    cuby[i].update();
+    
+    hit = collidePointRect(player.xc,player.bullet,cuby[i].x,cuby[i].y,69,69);
+    if(hit === true){
+      cuby[i].x= random(343,1000)
+      cuby[i].y=20
+      score = +1
+    }
+  }
   player.show2()
+  player.shoot()
+  player.update3()
   
-      
-      
+  
+  
+
       
       
     
@@ -53,7 +66,7 @@ function draw(){
   
  
   noFill();
-  rect(343,20,761,690)
+  rect(343,20,761,690);
   line(377.5,20,377,710)
   line(412,20,412,710)
   line(446.5,20,446.5,710)
@@ -103,26 +116,30 @@ function draw(){
   
   
   if((keyIsDown(RIGHT_ARROW)) &&(player.x2 <1102)){
-    player.x += 17.25;
-    player.x2 += 17.25;
-    player.x3 += 17.25;
+    player.x += 13;
+    player.x2 += 13;
+    player.x3 += 13;
+    if(player.bullet == 675){
+    player.xc += 13}
   }
   if((keyIsDown(LEFT_ARROW)) &&(player.x3 > 330)){
-    player.x -= 17.25;
-    player.x2 -= 17.25;
-    player.x3 -= 17.25;
+    player.x -= 13;
+    player.x2 -= 13;
+    player.x3 -= 13;
+    if(player.bullet == 675){
+    player.xc -= 13;
+    }
   }
 
   
 }
 
-function keyPressed(){
-
-  
-  
-}
-
-  
+ function keyPressed(){
+    if(keyCode == 32){
+      player.up()
+      
+    }
+    }
 
 
 
