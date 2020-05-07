@@ -9,29 +9,62 @@
     padding:0;
     overflow:hidden;
   }
+  #box{
+    width:5%;
+    height:10%;
+    border:solid;
+    position:absolute;
+    margin-top:5%;
+    margin-left:10%;
+    text-align:center;
+  }
+  #box2{
+    width:5%;
+    height:10%;
+    border:solid;
+    position:absolute;
+    margin-top:5%;
+    margin-left:2%;
+    text-align:center;
+  }
+  #box3{
+    width:5%;
+    height:10%;
+    border:solid;
+    position:absolute;
+    margin-top:12%;
+    margin-left:6%;
+    text-align:center;
+  }
+  
   </style>
   </head>
   
   <body>
-    
-    
+   
+    <div id="box"><p><b>Score</b></p><p id="score"></p></div>
+    <div id="box2"><p><b>HP</b></p><p id="health"></p></div>
+    <div id="box3"><p><b>Level</b></p><p id="lvl"></p></div>
+
     
     <script>
     
 var w = window.innerWidth;
 var h = window.innerHeight;
-//var cuby = new cube();
 var cuby=[]
-var score = 0
 var player = new shooter();
-var hit = false
+var hit = false;
+var levels =
+
+document.getElementById("health").innerHTML = health
 function setup(){
   createCanvas(w,h)
   for(var i=0; i<1; i++){
     cuby.push( new cube());
+  
   }
-
-
+  document.getElementById("health").innerHTML = 1
+  document.getElementById("lvl").innerHTML = 1
 
 
 
@@ -48,11 +81,17 @@ function draw(){
     if(hit === true){
       cuby[i].x= random(343,1000)
       cuby[i].y=20
-      score = +1
+      document.getElementById("score").innerHTML ++;
+      
+      
+      player.bullet = 720;
+      player.velo = 0
+      player.xc =player.x
     }
+    
   }
-  player.show2()
   player.shoot()
+  player.show2()
   player.update3()
   
   
@@ -112,39 +151,42 @@ function draw(){
   line(343,675,1102,675)
   
   
-  
+  if(document.getElementById("score").innerHTML == 2){
+  document.getElementById("lvl").innerHTML++ ;
+}
   
   
   if((keyIsDown(RIGHT_ARROW)) &&(player.x2 <1102)){
-    player.x += 13;
-    player.x2 += 13;
-    player.x3 += 13;
-    if(player.bullet == 675){
-    player.xc += 13}
+    player.x += 10;
+    player.x2 += 10;
+    player.x3 += 10;
+    if(player.bullet == 720){
+    player.xc += 10}
   }
   if((keyIsDown(LEFT_ARROW)) &&(player.x3 > 330)){
-    player.x -= 13;
-    player.x2 -= 13;
-    player.x3 -= 13;
-    if(player.bullet == 675){
-    player.xc -= 13;
+    player.x -= 10;
+    player.x2 -= 10;
+    player.x3 -= 10;
+    if(player.bullet == 720){
+    player.xc -= 10;
     }
   }
 
   
+if(document.getElementById("health").innerHTML == 0){
+    location.reload();
+    window.alert("you died");
 }
 
- function keyPressed(){
+
+
+}
+function keyPressed(){
     if(keyCode == 32){
-      player.up()
-      
+      player.up();
     }
     }
-
-
-
-
-
+ 
 
 
 

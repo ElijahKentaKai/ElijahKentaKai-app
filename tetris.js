@@ -11,9 +11,10 @@ function cube(){
       this.y += 2;
     }
     else if((this.y ==  640) ||(this.y > 640  )){
+      document.getElementById("health").innerHTML --;
       
-      
-      
+      this.x =(343,1000);
+      this.y =20
       
     }
   }
@@ -36,7 +37,7 @@ function shooter(){
   this.y2 =710;
   this.x3= 673;
   this.y3=710
-  this.bullet =this.y
+  this.bullet =720
   this.xc = this.x
   this.gravity = 0.001
   this.lift=-20
@@ -64,11 +65,11 @@ function shooter(){
   this.update3 = function(){
     this.velo += this.gravity;
     this.bullet += this.velo;
-    if(this.bullet>675){
-      this.bullet = 675
+    if(this.bullet>720){
+      this.bullet = 720
     }
     if(this.bullet <20){
-      this.bullet = 675;
+      this.bullet = 720;
       this.velo = 0
       this.xc =this.x
     }
