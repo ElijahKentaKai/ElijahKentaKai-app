@@ -1,19 +1,22 @@
 
 
 function cube(){
-  this.x= random(343,1000);
+  //this.axis = [[343],[377.5],[412],[446.5],[481],[515.5],[550],[584.5],[619],[653.5],[688],[722.5],[757],[791.5],[826],[860.5],[895],[929.5],[964],[998.5],[1033]]
+  this.x= random(343,1033);
   this.y= 20;
   this.w=69;
   this.h=69;
+  this.speed3=speed1;
+  this.speed4=speed2;
   this.update  = function(){
     
     if(this.y < 640){
-      this.y += 2;
+      this.y += random(this.speed3,this.speed4);
     }
     else if((this.y ==  640) ||(this.y > 640  )){
       document.getElementById("health").innerHTML --;
       
-      this.x =(343,1000);
+      this.x =(343,1033);
       this.y =20
       
     }
@@ -39,8 +42,8 @@ function shooter(){
   this.y3=710
   this.bullet =720
   this.xc = this.x
-  this.gravity = 0.001
-  this.lift=-20
+  this.gravity = 0
+  this.lift=-30
   this.velo=0
   
   this.update2 = function(){
@@ -48,14 +51,15 @@ function shooter(){
   }
   this.show2 = function(){
     fill(255,0,0)
+    
     triangle(this.x,this.y,this.x2,this.y2,this.x3,this.y3)
   }
   
   
   this.shoot = function(){
-    
-    fill(0,0,0)
-    circle(this.xc,this.bullet,10)
+
+    fill(241, 250, 80)
+    circle(this.xc,this.bullet,15)
   }
 
   this.up = function(){
