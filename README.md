@@ -1,4 +1,4 @@
 # ElijahKentaKai-app
+#requires live server 
 
-
-space invader type game with a small triangle shooter moving left and right to shoot shapes and things coming down at it.
+space invader type game to shoot down enemy before they could reach the ground 
