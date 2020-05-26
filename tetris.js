@@ -70,8 +70,7 @@ function cube(){
       moveRight = 10.5
       moveLeft =10.5
       shooter.lift = -200
-      window.alert("Level 5!")
-  
+
     }
     else if(document.getElementById("score").innerHTML ==70){
       document.getElementById("lvl").innerHTML =6
@@ -121,8 +120,7 @@ function cube(){
       moveRight = 10.75
       moveLeft =10.75
       shooter.lift = -200
-      window.alert("Level 10!")
-  
+
     }
     else if(document.getElementById("score").innerHTML ==135){
       document.getElementById("lvl").innerHTML =11
@@ -222,8 +220,7 @@ function cube(){
       moveRight = 10.75
       moveLeft =10.75
       shooter.lift = -200
-      window.alert("Level 20! ")
-  
+
     }
     else if(document.getElementById("score").innerHTML ==300){
       document.getElementById("lvl").innerHTML = 30
